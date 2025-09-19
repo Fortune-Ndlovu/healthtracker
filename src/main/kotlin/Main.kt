@@ -6,10 +6,10 @@ fun main() {
     println("Welcome to Health Tracker")
     println("Please enter the following for the user:")
     println("   Name: ")
-    user.name = readLine()!!
+    user.name = readln()
     println("   Email: ")
-    user.email = readLine()!!
+    user.email = readln()
     println("   Id: ")
-    user.id = readLine()!!.toIntOrNull() ?: -1
-    println("The user details are: " + user)
+    user.id = readln().toIntOrNull() ?: -1
+    println("The user details are: $user")
 }
