@@ -4,8 +4,7 @@ var user = User()
 
 fun main() {
     println("Welcome to Health Tracker")
-    addUser()
-    listUser()
+    runApp()
 }
 
 fun addUser() {
@@ -28,4 +27,18 @@ fun menu(): Int {
     println("2. List User")
     println("0. Exit")
     return readlnOrNull()?.toIntOrNull() ?: -1
+}
+
+fun runApp() {
+    var input: Int
+    do {
+        input = menu()
+        when(input) {
+            1 -> addUser()
+            2 -> listUser()
+            in (3..6) -> println("Feature coming soon!")
+            0 -> println("Byee...")
+            else -> println("Invalid Option")
+        }
+    }   while (input != 0)
 }
