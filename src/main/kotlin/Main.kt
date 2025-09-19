@@ -10,5 +10,6 @@ fun main() {
     println("   Email: ")
     user.email = readLine()!!
     println("   Id: ")
+    user.id = readLine()?.toInt() ?: -1
     println("The user details are: " + user)
 }
