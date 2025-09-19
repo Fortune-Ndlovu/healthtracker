@@ -15,6 +15,12 @@ fun addUser() {
     user.email = readln()
     println("   Id: ")
     user.id = readln().toIntOrNull() ?: -1
+    println("   Weight: ")
+    user.weight = readln().toDoubleOrNull() ?: 0.0
+    println("   Height: ")
+    user.height = readln().toFloatOrNull() ?: 0.00f
+    println("   Gender: ")
+    user.gender = readln().toCharArray().first().toChar().uppercaseChar()
 }
 
 fun listUser() {
