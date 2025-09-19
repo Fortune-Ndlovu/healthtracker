@@ -20,7 +20,7 @@ fun addUser() {
     println("   Height: ")
     user.height = readln().toFloatOrNull() ?: 0.00f
     println("   Gender: ")
-    user.gender = readln().toCharArray().first().toChar().uppercaseChar()
+    user.gender = readln().firstOrNull()?.uppercaseChar() ?: 'O'
 }
 
 fun listUser() {
