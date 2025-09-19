@@ -6,7 +6,9 @@ fun main() {
     println("Welcome to Health Tracker")
     println("Please enter the following for the user:")
     println("   Name: ")
+    user.name = readLine()!!
     println("   Email: ")
+    user.email = readLine()!!
     println("   Id: ")
     println("The user details are: " + user)
 }
