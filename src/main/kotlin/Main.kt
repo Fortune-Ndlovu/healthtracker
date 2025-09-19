@@ -22,10 +22,12 @@ fun listUser() {
 }
 
 fun menu(): Int {
-    println("\nMain Menu:")
-    println("1. Add User")
-    println("2. List User")
-    println("0. Exit")
+    print("""
+    |Main Menu:
+    |   1. Add User
+    |   2. List User
+    |   0. Exit
+    |Please enter an option: """.trimMargin())
     return readlnOrNull()?.toIntOrNull() ?: -1
 }
 
