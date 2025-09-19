@@ -21,3 +21,11 @@ fun addUser() {
 fun listUser() {
     println("The user details are: $user")
 }
+
+fun menu(): Int {
+    println("\nMain Menu:")
+    println("1. Add User")
+    println("2. List User")
+    println("0. Exit")
+    return readlnOrNull()?.toIntOrNull() ?: -1
+}
