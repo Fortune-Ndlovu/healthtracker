@@ -1,5 +1,5 @@
 import models.User
-
+import utils.ValidationUtility
 /**
  * Global user instance for the Heath Tracker.
  *
@@ -8,6 +8,12 @@ import models.User
  * object and populated when the user adds their information.
  */
 var user = User()
+
+/**
+ * Global validation utility instance
+ * Used for validating user input throughout the application
+ */
+val validator = ValidationUtility
 
 /**
  * Main entry point of the Heath Tracker.
@@ -28,18 +34,24 @@ fun main() {
  */
 fun addUser() {
     println("Please enter the following for the user:")
-    println("   Name: ")
-    user.name = readln()
-    println("   Email: ")
-    user.email = readln()
-    println("   Id: ")
-    user.id = readln().toIntOrNull() ?: -1
-    println("   Weight: ")
-    user.weight = readln().toDoubleOrNull() ?: 0.0
-    println("   Height: ")
-    user.height = readln().toFloatOrNull() ?: 0.00f
-    println("   Gender: ")
-    user.gender = readln().firstOrNull()?.uppercaseChar() ?: 'O'
+
+    // Get name with validation (Retry until valid)
+    user.name = validator.getValidName(user.name)
+
+    // Get email with validation (Retry until valid)
+    user.email = validator.getValidEmail()
+
+    // Get ID with validation (uses default if invalid)
+    user.id = validator.getValidId()
+
+    // Get weight with validation (uses default if invalid)
+    user.weight = validator.getValidWeight()
+
+    // Get height with validation (uses default if invalid)
+    user.height = validator.getValidHeight()
+
+    // Get gender with validation (retry until valid)
+    user.gender = validator.getValidGender()
 }
 
 /**
